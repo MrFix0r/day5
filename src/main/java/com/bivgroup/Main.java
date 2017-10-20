@@ -1,6 +1,5 @@
 package com.bivgroup;
 
-import xmlSecondStructure.Cathedra;
 import xmlSecondStructure.Faculty;
 import xmlSecondStructure.University;
 
@@ -43,8 +42,16 @@ public class Main {
 
         //валидация
 
-        validateXMLByXSD(new File("./src/main/resources/xml/uni.xml"), new File("./src/main/resources/xml/uni3.xsd"));
-        validateXMLByXSD(new File("./target/test2.xml"), new File("./src/main/resources/xml/uni3.xsd") );
+//        validateXMLByXSD(new File("./src/main/resources/xml/uni.xml"), new File("./src/main/resources/xml/uni3.xsd"));
+//        validateXMLByXSD(new File("./target/test2.xml"), new File("./src/main/resources/xml/uni3.xsd") );
+
+        //DOMparser
+
+        System.out.println();
+
+        DomParser.Parse("./target/test.xml");
+
+        DomParser.modifyXmlFileTagArg("./target/test.xml","Faculty","name","Хихи");
 
     }
 
