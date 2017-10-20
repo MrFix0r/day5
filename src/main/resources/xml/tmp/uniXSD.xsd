@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name ="University">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="Faculty" minOccurs="1" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Cathedra" minOccurs="1" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Group" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="Student" minOccurs="1" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="Subject" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                  <xs:attribute name="name" type="xs:string" use="required"/>
+                                  <xs:attribute name="mark" use="required">
+                                    <xs:simpleType>
+                                      <xs:restriction base="xs:integer">
+                                        <xs:pattern value = "[1-5]" />
+                                     </xs:restriction>
+                                    </xs:simpleType>
+                                  </xs:attribute>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                            <xs:attribute name="name" type="xs:string" use="required"/>
+                            <xs:attribute name="surname" type="xs:string" use="required"/>
+                            <xs:attribute name="sex" type="xs:string" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                      <xs:attribute name="name" type="xs:string" use="required"/>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="name" type="xs:string" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="name" type="xs:string" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+  </xs:complexType>
+</xs:element>
+</xs:schema>
