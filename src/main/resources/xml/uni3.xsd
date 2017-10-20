@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Faculty">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element ref="Cathedra" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="name" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Group">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Student" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="name"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="University">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Faculty" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="name"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Cathedra">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Group"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="name"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Mark">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="rating" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Student">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Subject"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="name" use="optional"/>
+      <xs:attribute type="xs:string" name="surname" use="optional"/>
+      <xs:attribute type="xs:string" name="sex" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Subject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Mark"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="name" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
