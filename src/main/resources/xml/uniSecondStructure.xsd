@@ -3,9 +3,9 @@
   <xs:element name="Faculty">
     <xs:complexType mixed="true">
       <xs:sequence>
-        <xs:element ref="Cathedra" minOccurs="0"/>
+        <xs:element ref="Cathedra" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
-      <xs:attribute type="xs:string" name="name" use="optional"/>
+      <xs:attribute type="xs:string" name="name" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Group">
@@ -13,7 +13,7 @@
       <xs:sequence>
         <xs:element ref="Student" maxOccurs="unbounded" minOccurs="0"/>
       </xs:sequence>
-      <xs:attribute type="xs:string" name="name"/>
+      <xs:attribute type="xs:string" name="name" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="University">
@@ -21,35 +21,44 @@
       <xs:sequence>
         <xs:element ref="Faculty" maxOccurs="unbounded" minOccurs="0"/>
       </xs:sequence>
-      <xs:attribute type="xs:string" name="name"/>
+      <xs:attribute type="xs:string" name="name" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Cathedra">
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="Group"/>
+        <xs:element ref="Group" maxOccurs="unbounded" minOccurs="0"/>
       </xs:sequence>
-      <xs:attribute type="xs:string" name="name"/>
+      <xs:attribute type="xs:string" name="name" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Student">
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="Subject"/>
+        <xs:element ref="Subject" maxOccurs="unbounded" minOccurs="0"/>
       </xs:sequence>
-      <xs:attribute type="xs:string" name="name" use="optional"/>
-      <xs:attribute type="xs:string" name="surname" use="optional"/>
-      <xs:attribute type="xs:string" name="sex" use="optional"/>
+      <xs:attribute type="xs:string" name="name" use="required"/>
+      <xs:attribute type="xs:string" name="surname" use="required"/>
+      <xs:attribute type="xs:string" name="sex" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="Subject">
     <xs:complexType>
-      <xs:simpleContent>
-        <xs:extension base="xs:string">
-          <xs:attribute type="xs:string" name="name" use="optional"/>
-          <xs:attribute type="xs:string" name="mark" use="optional"/>
-        </xs:extension>
-      </xs:simpleContent>
+      <xs:sequence>
+        <xs:element ref="Mark" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="name" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Mark">
+    <xs:complexType>
+      <xs:attribute name="Rating" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:pattern value = "[1-5]" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
 </xs:schema>
