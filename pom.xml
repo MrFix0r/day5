@@ -28,9 +28,6 @@
                         <goals>
                             <goal>xjc</goal>
                         </goals>
-                        <phase>
-                            compile
-                        </phase>
                     </execution>
                 </executions>
                 <configuration>
@@ -38,6 +35,7 @@
                     <sources>
                         <source>src/main/resources/xml/tmp/uniXSD.xsd</source>
                     </sources>
+                    <outputDirectory>src/main/java-generated</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>
