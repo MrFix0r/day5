@@ -24,19 +24,35 @@
                 <version>2.3.1</version>
                 <executions>
                     <execution>
-                        <id>xjc</id>
+                        <id>xjc-scheme1</id>
                         <goals>
                             <goal>xjc</goal>
                         </goals>
+                        <configuration>
+                            <sources>
+                                <source>src/main/resources/xml/tmp/uniXSD.xsd</source>
+                            </sources>
+                            <packageName>xmlFirstStructure</packageName>
+                            <outputDirectory>src/main/java</outputDirectory>
+                            <clearOutputDir>false</clearOutputDir>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>xjc-scheme2</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>src/main/resources/xml/uniSecondStructure.xsd</source>
+                            </sources>
+                            <packageName>xmlSecondStructure</packageName>
+                            <!--<clearOutputDir>false</clearOutputDir>-->
+                            <outputDirectory>src/main/java</outputDirectory>
+                            <clearOutputDir>false</clearOutputDir>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <packageName>com.bivgroup.learn.xml</packageName>
-                    <sources>
-                        <source>src/main/resources/xml/tmp/uniXSD.xsd</source>
-                    </sources>
-                    <outputDirectory>src/main/java-generated</outputDirectory>
-                </configuration>
             </plugin>
         </plugins>
     </build>
