@@ -7,6 +7,7 @@ import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
 import java.io.File;
@@ -21,8 +22,8 @@ public class Main {
 
         //3 пункт: валидация xml по xsd (проверить ранее сохраненную xml, испортить ее и проверить, проверить другую xml)
         System.out.println();
-        validateXMLByXSD(new File("./src/main/resources/xml/uni.xml"), new File("./src/main/resources/xml/uni3.xsd"));
-        validateXMLByXSD(new File("./target/test2.xml"), new File("./src/main/resources/xml/uni3.xsd") );
+        validateXMLByXSD(new File("./src/main/resources/xml/uni.xml"), new File("./src/main/resources/xml/uniSecondStructure.xsd"));
+        validateXMLByXSD(new File("./target/test2.xml"), new File("./src/main/resources/xml/uniSecondStructure.xsd") );
 
         //4 пункт: DOM - десериализация xml, редактирование, сохранение (распарсить xml, изменить произвольное значение, сохранить изменения)
         System.out.println();
@@ -36,6 +37,8 @@ public class Main {
         //5 пункт: SAX - чтение и анализ (посчитать и вывести среднюю оценку по группе по предметам)
         MySAXParser.parse("./src/main/resources/xml/uni.xml");
 
+        //6 пункт: JAXB - десереализация, редактирование, сохранение (получить из xml объект, добавить произвольную информацию, сохранить)
+        JaxbXmlToJava("./target/test2.xml");
     }
 
     private static void JAXBParseAndSaveToFile(University uni) {
@@ -83,5 +86,31 @@ public class Main {
             return;
         }
         System.out.println("Файл \'" + xml.getName() + "\' валиден с файлом \'" + xsd.getName() + "\'");;
+    }
+
+    private static void JaxbXmlToJava(String fileName){
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(University.class);
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+
+            File XMLfile = new File(fileName);
+
+            University uni = (University) jaxbUnmarshaller.unmarshal(XMLfile);
+            System.out.println("University Name : "+uni.getName());
+
+            uni.setName("ГУПОЧ");
+
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+            // output pretty printed
+            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+            jaxbMarshaller.marshal(uni, new File("./target/jaxbTest.xml"));
+            jaxbMarshaller.marshal(uni, System.out);
+
+        } catch (JAXBException e) {
+            // some exception occured
+            e.printStackTrace();
+        }
     }
 }
