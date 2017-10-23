@@ -7,24 +7,58 @@
                     <Subject name = "SubjectName1">
                         <Mark rating = "3"> </Mark>
                     </Subject>
-                    <Subject name = "SubkectName2">
+                    <Subject name = "SubjectName2">
                         <Mark rating="2"></Mark>
                     </Subject>
-                    <Subject name = "SubkectName3">
+                    <Subject name = "SubjectName3">
                         <Mark rating="4"></Mark>
+                        <Mark rating="2"></Mark>
                     </Subject>
                 </Student>
                 <Student name = "StudentName2" surname = "StudentSurname2" sex = "Male">
                     <Subject name = "SubjectName1">
                         <Mark rating = "2"> </Mark>
+                        <Mark rating = "2"> </Mark>
+                        <Mark rating = "2"> </Mark>
+                        <Mark rating = "2"> </Mark>
                     </Subject>
                 </Student>
                 <Student name = "StudentName3" surname = "StudentSurname3" sex = "Female">
-                    <Subject name = "SubjectName1">
+                    <Subject name = "SubjectName5">
                         <Mark rating = "5"> </Mark>
                     </Subject>
-                    <Subject name = "SubjectName2">
+                    <Subject name = "SubjectName6">
                         <Mark rating = "3"> </Mark>
+                    </Subject>
+                </Student>
+            </Group>
+            <Group name = "GroupName2">
+                <Student name = "StudentName1" surname = "StudentSurname1" sex = "Male">
+                    <Subject name = "SubjectName1">
+                        <Mark rating = "1"> </Mark>
+                    </Subject>
+                    <Subject name = "SubjectName2">
+                        <Mark rating="2"></Mark>
+                    </Subject>
+                    <Subject name = "SubjectName3">
+                        <Mark rating="3"></Mark>
+                        <Mark rating="4"></Mark>
+                    </Subject>
+                </Student>
+                <Student name = "StudentName2" surname = "StudentSurname2" sex = "Male">
+                    <Subject name = "SubjectName1">
+                        <Mark rating = "5"> </Mark>
+                        <Mark rating = "1"> </Mark>
+                        <Mark rating = "2"> </Mark>
+                        <Mark rating = "3"> </Mark>
+                    </Subject>
+                </Student>
+                <Student name = "StudentName3" surname = "StudentSurname3" sex = "Female">
+                    <Subject name = "SubjectName5">
+                        <Mark rating = "4"> </Mark>
+                    </Subject>
+                    <Subject name = "SubjectName6">
+                        <Mark rating = "5"> </Mark>
                     </Subject>
                 </Student>
             </Group>

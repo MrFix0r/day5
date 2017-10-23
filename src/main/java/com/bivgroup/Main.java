@@ -30,6 +30,8 @@ public class Main {
         DomParser.Parse("./target/test.xml");
         System.out.println();
         DomParser.modifyXmlFileTagArg("./target/test.xml","Faculty","name","Хихи");
+        System.out.println();
+        System.out.println("-----------------------");
 
         //5 пункт: SAX - чтение и анализ (посчитать и вывести среднюю оценку по группе по предметам)
         MySAXParser.parse("./src/main/resources/xml/uni.xml");
