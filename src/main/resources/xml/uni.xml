@@ -5,17 +5,26 @@
             <Group name = "GroupName1">
                 <Student name = "StudentName1" surname = "StudentSurname1" sex = "Male">
                     <Subject name = "SubjectName1">
-                        <Mark rating = "5"> </Mark>
+                        <Mark rating = "3"> </Mark>
+                    </Subject>
+                    <Subject name = "SubkectName2">
+                        <Mark rating="2"></Mark>
+                    </Subject>
+                    <Subject name = "SubkectName3">
+                        <Mark rating="4"></Mark>
                     </Subject>
                 </Student>
                 <Student name = "StudentName2" surname = "StudentSurname2" sex = "Male">
                     <Subject name = "SubjectName1">
-                        <Mark rating = "5"> </Mark>
+                        <Mark rating = "2"> </Mark>
                     </Subject>
                 </Student>
                 <Student name = "StudentName3" surname = "StudentSurname3" sex = "Female">
                     <Subject name = "SubjectName1">
                         <Mark rating = "5"> </Mark>
+                    </Subject>
+                    <Subject name = "SubjectName2">
+                        <Mark rating = "3"> </Mark>
                     </Subject>
                 </Student>
             </Group>

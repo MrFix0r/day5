@@ -32,7 +32,7 @@ public class Main {
         DomParser.modifyXmlFileTagArg("./target/test.xml","Faculty","name","Хихи");
 
         //5 пункт: SAX - чтение и анализ (посчитать и вывести среднюю оценку по группе по предметам)
-//        MySAXParser.parse("./src/main/resources/xml/uni.xml");
+        MySAXParser.parse("./src/main/resources/xml/uni.xml");
 
     }
 
